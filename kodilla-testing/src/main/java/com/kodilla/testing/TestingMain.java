@@ -14,7 +14,7 @@ public class TestingMain {
             System.out.println("Error!");
         }
 
-        if (calculator.subtract(250, 1000) == 750) {
+        if (calculator.subtract(250, 1000) == -750) {
             System.out.println("test OK");
         } else {
             System.out.println("Error!");
