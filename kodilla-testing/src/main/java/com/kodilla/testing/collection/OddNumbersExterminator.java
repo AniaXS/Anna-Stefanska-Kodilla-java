@@ -4,9 +4,9 @@ import java.util.*;
 
 public class OddNumbersExterminator {
 
-    private ArrayList<Integer> oddNumbers = new ArrayList<Integer>();
+    private List<Integer> oddNumbers = new ArrayList<Integer>();
 
-    public ArrayList<Integer> exterminate(List<Integer> numbers) {
+    public List<Integer> exterminate(List<Integer> numbers) {
         for (Integer element : numbers) {
             if (element % 2 == 0) {
                 oddNumbers.add(element);
