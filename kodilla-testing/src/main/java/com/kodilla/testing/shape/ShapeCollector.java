@@ -23,7 +23,9 @@ public class ShapeCollector {
 
     public String getFigure(int n) {
 
-        return figures.get(n).toString();
+        String figure = "";
+        if (n >= 0) figure = figures.get(n).toString();
+        return figure;
     }
 
     public String showFigures() {

@@ -104,4 +104,16 @@ public class ShapeCollectorTestSuite {
         //Then
         Assert.assertTrue(result.isEmpty() == true);
     }
+
+    @Test
+    public void testGetFigureWithArgumentLessThanZero() {
+        //Given
+        ShapeCollector figures = new ShapeCollector();
+
+        //When
+        String figure = figures.getFigure(-2);
+
+        //Then
+        Assert.assertTrue(figure.isEmpty() == true);
+    }
 }
