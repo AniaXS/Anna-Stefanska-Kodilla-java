@@ -110,8 +110,8 @@ public class BookDirectoryTestSuite {
         List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOf(userWithoutBooks);
         List<Book> theListOfBooks1 = bookLibrary.listBooksInHandsOf(userWithOneBook);
         List<Book> theListOfBooks5 = bookLibrary.listBooksInHandsOf(userWithFiveBooks);
-        // Then
 
+        // Then
         assertEquals(0, theListOfBooks0.size());
         assertEquals(1, theListOfBooks1.size());
         assertEquals(5, theListOfBooks5.size());
