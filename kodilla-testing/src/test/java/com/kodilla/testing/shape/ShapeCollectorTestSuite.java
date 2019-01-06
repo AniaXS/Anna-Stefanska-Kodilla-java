@@ -21,10 +21,9 @@ public class ShapeCollectorTestSuite {
         System.out.println("Preparing to execute test #" + testCounter);
     }
 
-
-
     @Test
     public void testAddFigure() {
+        //Given
         ShapeCollector figures = new ShapeCollector();
         Circle circle = new Circle(2);
         Square square = new Square(4);
@@ -41,6 +40,7 @@ public class ShapeCollectorTestSuite {
 
     @Test
     public void tesRemoveFigureNotExisting() {
+        //Given
         ShapeCollector figures = new ShapeCollector();
         Circle circle = new Circle(2);
 
@@ -53,6 +53,7 @@ public class ShapeCollectorTestSuite {
 
     @Test
     public void tesRemoveFigure() {
+        //Given
         ShapeCollector figures = new ShapeCollector();
         Circle circle = new Circle(2);
         figures.addFigure(circle);
@@ -66,6 +67,7 @@ public class ShapeCollectorTestSuite {
 
     @Test
     public void testGetFigure() {
+        //Given
         ShapeCollector figures = new ShapeCollector();
         Circle circle = new Circle(2);
         figures.addFigure(circle);
@@ -79,6 +81,7 @@ public class ShapeCollectorTestSuite {
 
     @Test
     public void testGetField() {
+        //Given
         Circle circle = new Circle(2);
         Square square = new Square(4);
         Triangle triangle = new Triangle(4, 2);
@@ -88,5 +91,17 @@ public class ShapeCollectorTestSuite {
 
         //Then
         Assert.assertEquals(32.57, result, 0.01);
+    }
+
+    @Test
+    public void testShowTheEmptyList() {
+        //Given
+        ShapeCollector figures = new ShapeCollector();
+
+        //When
+        String result = figures.showFigures();
+
+        //Then
+        Assert.assertTrue(result.isEmpty() == true);
     }
 }

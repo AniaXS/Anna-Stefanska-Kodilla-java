@@ -19,9 +19,7 @@ public class Circle implements Shape {
 
     @Override
     public double getField() {
-        double field = PI * pow(radius, 2) * 100;
-        field = round(field);
-        field /= 100;
+        double field = PI * pow(radius, 2);
         return field;
     }
 
@@ -43,6 +41,7 @@ public class Circle implements Shape {
     }
 
     public String toString() {
-        return getShapeName() + ": " + getField();
+
+        return getShapeName() + ": " + String.format("%.2f", getField());
     }
 }
