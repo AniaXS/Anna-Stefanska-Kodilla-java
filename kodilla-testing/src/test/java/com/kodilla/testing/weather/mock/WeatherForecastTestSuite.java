@@ -6,9 +6,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import java.util.HashMap;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 public class WeatherForecastTestSuite {
 
     @Test
