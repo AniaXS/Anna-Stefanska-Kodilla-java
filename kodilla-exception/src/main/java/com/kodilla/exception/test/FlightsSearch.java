@@ -17,8 +17,8 @@ public class FlightsSearch {
         listOfDepartures.put("Łódź Lublinek", false);
         listOfDepartures.put("Gdańsk Rębiechowo", true);
 
-        if (listOfDepartures.containsKey(flight.getArrivalAirport()) == true) {
-            if (listOfDepartures.get(flight.getArrivalAirport()) == true) {
+        if (listOfDepartures.containsKey(flight.getArrivalAirport())) {
+            if (listOfDepartures.get(flight.getArrivalAirport())) {
                 System.out.println("There are flights to the " + flight.getArrivalAirport() + " airport.");
             } else {
                 System.out.println("There are no flights to the " + flight.getArrivalAirport() + " airport.");
@@ -30,12 +30,12 @@ public class FlightsSearch {
     }
 
     public static void main(String[] args) {
-        Flight flight = new Flight("Modlin", "Kraków Balice");
+        Flight flight = new Flight("Modlin", "Zakopane");
 
         try {
             findFlight(flight);
         } catch (RouteNotFoundException r) {
-            System.out.println("This airport is unknown");
+            System.out.println(flight.getArrivalAirport() + " airport is unknown");
         } finally {
             System.out.println("Thank you for using our search engine");
         }
