@@ -5,17 +5,10 @@ import java.util.Map;
 
 public class FlightsSearch {
 
-    Map<String, Boolean> listOfDepartures = new HashMap<>();
+    private Map<String, Boolean> listOfDepartures = new HashMap<>();
 
-    public FlightsSearch() {
-        listOfDepartures.put("Warszawa Okęcie",false);
-        listOfDepartures.put("Modlin",true);
-        listOfDepartures.put("Wrocław",true);
-        listOfDepartures.put("Poznań Ławica",true);
-        listOfDepartures.put("Kraków Balice",false);
-        listOfDepartures.put("Katowice Pyrzowice",true);
-        listOfDepartures.put("Łódź Lublinek",false);
-        listOfDepartures.put("Gdańsk Rębiechowo",true);
+    public FlightsSearch(Map<String, Boolean> listOfDepartures) {
+        this.listOfDepartures = listOfDepartures;
     }
 
     public void findFlight(Flight flight) throws RouteNotFoundException {
@@ -33,8 +26,20 @@ public class FlightsSearch {
     }
 
     public static void main(String[] args) {
+
+        Map<String, Boolean> listOfDepartures = new HashMap<>();
+        listOfDepartures.put("Warszawa Okęcie",false);
+        listOfDepartures.put("Modlin",true);
+        listOfDepartures.put("Wrocław",true);
+        listOfDepartures.put("Poznań Ławica",true);
+        listOfDepartures.put("Kraków Balice",false);
+        listOfDepartures.put("Katowice Pyrzowice",true);
+        listOfDepartures.put("Łódź Lublinek",false);
+        listOfDepartures.put("Gdańsk Rębiechowo",true);
+
+        FlightsSearch flightsSearch = new FlightsSearch(listOfDepartures);
+
         Flight flight = new Flight("Modlin", "Zakopane");
-        FlightsSearch flightsSearch = new FlightsSearch();
 
         try {
             flightsSearch.findFlight(flight);
