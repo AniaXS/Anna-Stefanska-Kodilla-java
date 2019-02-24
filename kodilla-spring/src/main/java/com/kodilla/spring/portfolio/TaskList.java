@@ -1,22 +1,20 @@
 package com.kodilla.spring.portfolio;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public final class TaskList {
-    List<String > tasks;
+    private List<String> tasks;
 
     public TaskList(List<String> tasks) {
-        tasks = tasks = new ArrayList<>();
+        this.tasks = tasks;
     }
 
     public List<String> getTasks() {
         return tasks;
     }
 
-    public TaskList addTask(String newTask) {
+    public void addTask(String newTask) {
         tasks.add(newTask);
-        return new TaskList(tasks);
     }
 
     @Override
