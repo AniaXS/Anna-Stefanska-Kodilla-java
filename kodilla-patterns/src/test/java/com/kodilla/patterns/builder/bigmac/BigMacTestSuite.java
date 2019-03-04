@@ -8,7 +8,7 @@ public class BigMacTestSuite {
     public void testNewBigMac() {
         //Given
         BigMac bigMac = new BigMac.BigMacBuilder()
-                .bun("With sesame seeds")
+                .bun("Gluten-free")
                 .burgers(3)
                 .ingredient("Onion")
                 .ingredient("Cheese")
@@ -21,23 +21,22 @@ public class BigMacTestSuite {
         //Then
         Assert.assertEquals(4, bigMac.getIngredients().size());
         Assert.assertEquals(3, bigMac.getBurgers());
-        Assert.assertEquals("With sesame seeds", bigMac.getBun());
+        Assert.assertEquals("Gluten-free", bigMac.getBun());
         Assert.assertEquals("Barbecue", bigMac.getSauce());
     }
 
     @Test
-    public void testNewBigMacWhithDefaultNumberOfBurgers() {
+    public void testNewDefaultBigMac() {
         //Given
         BigMac bigMac = new BigMac.BigMacBuilder()
-                .bun("Without sesame seeds")
-                .ingredient("Lettuce")
-                .sauce("Standart")
-                .ingredient("Mushrooms")
                 .build();
         System.out.println(bigMac);
         //When
         int numberOfBurgers = bigMac.getBurgers();
         //Then
         Assert.assertEquals(2, numberOfBurgers);
+        Assert.assertEquals("With sesame seeds", bigMac.getBun());
+        Assert.assertEquals("Standard", bigMac.getSauce());
+        Assert.assertEquals(0, bigMac.getIngredients().size());
     }
 }

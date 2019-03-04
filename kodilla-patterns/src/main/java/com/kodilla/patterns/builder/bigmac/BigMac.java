@@ -10,9 +10,9 @@ public final class BigMac {
     private final List<String> ingredients;
 
     public static class BigMacBuilder {
-        private String bun;
+        private String bun = "With sesame seeds";
         private int burgers;
-        private String sauce;
+        private String sauce = "Standard";
         private List<String> ingredients = new ArrayList<>();
 
         public BigMacBuilder bun(String bun) {
