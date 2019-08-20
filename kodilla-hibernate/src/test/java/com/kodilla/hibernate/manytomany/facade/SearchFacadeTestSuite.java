@@ -22,7 +22,7 @@ public class SearchFacadeTestSuite {
     public void testFindCompaniesByFragment() {
         //Given
         Company softwareMachine = new Company("Software Machine");
-        Company dataMaesters = new Company("Data Maesters");
+        Company dataMaesters = new Company("Future Software");
         Company greyMatter = new Company("Grey Matter");
 
         searchFacade.addCompany(softwareMachine);
@@ -30,7 +30,7 @@ public class SearchFacadeTestSuite {
         searchFacade.addCompany(greyMatter);
 
         //When
-        List<Company> companies = searchFacade.findCompaniesByFragment("aT");
+        List<Company> companies = searchFacade.findCompaniesByFragment("sof");
 
         //Then
         assertEquals(2, companies.size());
@@ -78,25 +78,25 @@ public class SearchFacadeTestSuite {
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
         Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
-        Employee robertSmith = new Employee("Robert", "Smith");
+        Employee claraSmith = new Employee("Clara", "Smith");
 
         searchFacade.addEmployee(johnSmith);
         searchFacade.addEmployee(stephanieClarckson);
         searchFacade.addEmployee(lindaKovalsky);
-        searchFacade.addEmployee(robertSmith);
+        searchFacade.addEmployee(claraSmith);
 
         //When
-        List<Employee> employees = searchFacade.findEmployeesByFragment("t");
+        List<Employee> employees = searchFacade.findEmployeesByFragment("cl");
 
         //Then
-        assertEquals(3, employees.size());
+        assertEquals(2, employees.size());
 
         //CleanUp
         try {
             searchFacade.deleteEmployee(johnSmith.getId());
             searchFacade.deleteEmployee(stephanieClarckson.getId());
             searchFacade.deleteEmployee(lindaKovalsky.getId());
-            searchFacade.deleteEmployee(robertSmith.getId());
+            searchFacade.deleteEmployee(claraSmith.getId());
         } catch (Exception e) {
             //do nothing
         }
