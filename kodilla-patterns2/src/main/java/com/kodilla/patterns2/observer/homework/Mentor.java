@@ -9,10 +9,9 @@ public class Mentor implements Observer {
     }
 
     @Override
-    public void update(TaskQueue tasks) {
-        int total = tasks.getTasks().size();
-        System.out.println(userame + ": " + tasks.getStudent() + " added new task to queue " + tasks.getName() +
-                "\n (total: " + total + " tasks)");
+    public void update(Student student) {
+        System.out.println(userame + ": " + student.getUserame() + " added new task to queue." +
+                "\n(total: " + student.getTasks().size() + " tasks)");
         tasksCount++;
     }
 

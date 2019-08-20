@@ -9,27 +9,28 @@ public class TaskQueueTestSuite {
     @Test
     public void testUpdateTaksQueue() {
         //Given
-        TaskQueue javaCourse1 = new TaskQueue("Eve Adams", "Java");
-        TaskQueue sqlCourse1 = new TaskQueue("Adam Green", "SQL Course");
-        TaskQueue javaCourse2 = new TaskQueue("Mary Moore", "Java");
+        Student eveAdams = new Student("Eve Adams");
+        Student adamGreen = new Student("Adam Green");
+        Student maryMoore = new Student("Mary Moore");
         Mentor tomNewman = new Mentor("Tom Newman");
         Mentor helenDravies = new Mentor("Helen Davies");
-        javaCourse1.registerObserver(helenDravies);
-        sqlCourse1.registerObserver(helenDravies);
-        sqlCourse1.registerObserver(tomNewman);
-        javaCourse2.registerObserver(helenDravies);
-        sqlCourse1.removeObserver(helenDravies);
+        eveAdams.registerObserver(helenDravies);
+        adamGreen.registerObserver(tomNewman);
+        maryMoore.registerObserver(helenDravies);
+        maryMoore.registerObserver(tomNewman);
+        maryMoore.removeObserver(tomNewman);
         //When
-        javaCourse1.addTask("Shop");
-        javaCourse2.addTask("Letters");
-        sqlCourse1.addTask("Create database");
-        javaCourse2.addTask("School");
-        sqlCourse1.addTask("Invoices");
-        sqlCourse1.addTask("Library");
-        javaCourse2.addTask("Factory");
-        javaCourse1.addTask("Letters");
+        eveAdams.addTask(new Task("Facade", "facade solution"));
+        adamGreen.addTask(new Task("functions", "Find user by ID"));
+        adamGreen.addTask(new Task(" Update tables", "Factory"));
+        maryMoore.addTask(new Task("Builder", "Pizza builder"));
+        eveAdams.addTask(new Task("Mockito", "Application tests"));
+        maryMoore.addTask(new Task("Facade", "Library facade"));
+        maryMoore.addTask(new Task("Classes", "Alarm clock"));
+        adamGreen.addTask(new Task("Variables", "true or false?"));
+        adamGreen.addTask(new Task("ManyToMany", "Library"));
         //Then
-        assertEquals(3, tomNewman.getTasksCount());
+        assertEquals(4, tomNewman.getTasksCount());
         assertEquals(5, helenDravies.getTasksCount());
     }
 }

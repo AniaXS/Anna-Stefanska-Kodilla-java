@@ -1,5 +1,5 @@
 package com.kodilla.patterns2.observer.homework;
 
 public interface Observer {
-    void update(TaskQueue tasksQueue);
+    void update(Student student);
 }

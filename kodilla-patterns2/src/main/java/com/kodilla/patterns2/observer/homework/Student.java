@@ -5,20 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
-public class TaskQueue implements Observable {
-    private final String student;
-    private final String name;
-    private final Queue<String> tasks;
+public class Student implements Observable {
+    private final String userame;
+    private final Queue<Task> tasks;
     private final List<Observer> observers;
 
-    public TaskQueue(String student, String name) {
+    public Student(String userame) {
         tasks = new ArrayDeque<>();
         observers = new ArrayList<>();
-        this.student = student;
-        this.name = name;
+        this.userame = userame;
     }
 
-    public void addTask(String task) {
+    public void addTask(Task task) {
         tasks.offer(task);
         notifyObservers();
     }
@@ -40,15 +38,15 @@ public class TaskQueue implements Observable {
         observers.remove(observer);
     }
 
-    public String getStudent() {
-        return student;
+    public String getUserame() {
+        return userame;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Queue<String> getTasks() {
+    public Queue<Task> getTasks() {
         return tasks;
+    }
+
+    public List<Observer> getObservers() {
+        return observers;
     }
 }
