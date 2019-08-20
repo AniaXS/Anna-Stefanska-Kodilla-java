@@ -8,6 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.time.Duration;
+import java.time.Instant;
+
 @Aspect
 @Component
 public class FacadeWatcher {
@@ -22,10 +25,10 @@ public class FacadeWatcher {
     public Object measureTime(final ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Object result;
         try {
-            long begin = System.currentTimeMillis();
+            Instant start = Instant.now();
             result = proceedingJoinPoint.proceed();
-            long end = System.currentTimeMillis();
-            LOGGER.info("Time consumed: " + (end - begin) + " ms");
+            Instant finish = Instant.now();
+            LOGGER.info("Time consumed: " + Duration.between(start, finish).toNanos() + " ns");
         } catch (Throwable throwable) {
             LOGGER.error("Time measurement was interrupted by an error: " + throwable.getMessage());
             throw throwable;
