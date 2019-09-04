@@ -4,9 +4,11 @@ import com.kodilla.testing2.config.WebDriverConfig;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
@@ -28,7 +30,6 @@ public class CrudAppTestSuit {
 
     @After
     public void cleanUpAfterTest() {
-        driver.switchTo().alert().accept();
         driver.close();
     }
 
@@ -69,6 +70,8 @@ public class CrudAppTestSuit {
                     buttonCreateCard.click();
                 });
         Thread.sleep(5000);
+
+        driver.switchTo().alert().accept();
     }
 
     private boolean checkTaskExistsInTrello(String taskName) throws InterruptedException {
@@ -118,7 +121,7 @@ public class CrudAppTestSuit {
     public void shouldCreateTrelloCard() throws InterruptedException {
         String taskName = createCrudAppTestTask();
         sendTaskToTrello(taskName);
-        deleteCrudAppTestTask("Task number 88697");
+        deleteCrudAppTestTask(taskName);
         assertTrue(checkTaskExistsInTrello(taskName));
     }
 }
